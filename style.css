@@ -160,3 +160,15 @@ body {
         grid-template-columns: 1fr;
    }
 }
+/* 
+@media (max-width:600px) {
+    html, body {
+        overflow-x: hidden;
+    }
+    body {
+        position: relative;
+    }
+    .nav-links {
+        gap: 0px;
+    }
+} */
