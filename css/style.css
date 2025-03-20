@@ -1,0 +1,189 @@
+/*
+Color Palette: https://coolors.co/palette/606c38-283618-fefae0-dda15e-bc6c25
+Fonts: IBM Plex Serif from Google Fonts
+*/
+
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+    font-family: 'IBM Plex Serif';
+    font-style: normal;
+    background: linear-gradient(45deg, #283618 50%, #606c38 50%);
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(#fefae080, #fefae080), url('../images/navbar.webp') center/cover no-repeat;
+    color: black;
+    border-radius: 8px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    background-color: #bc6c25;
+}
+
+/* Content Styles */
+.issuesContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 50px 0;
+    box-sizing: border-box;
+    max-width: 90%;
+    margin: auto;
+}
+
+.issue {
+    position: relative;
+    background-color: #bc6c25;
+    min-height: 500px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    border: solid black 1px;
+    border-radius: 8px;
+    transition: border 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.issue::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.issue:hover {
+    border: 2mm inset black;
+}
+
+#overview::before {
+    background-image: url('../images/overview.webp');
+}
+
+#agricultural::before {
+    background-image: url('../images/agricultural.webp');
+}
+
+#climatechange::before {
+    background-image: url('../images/climatechange.webp');
+}
+
+#urbanization::before {
+    background-image: url('../images/urbanization.webp');
+}
+
+#economics::before {
+    background-image: url('../images/economic.webp');
+}
+
+#technology::before {
+    background-image: url('../images/technology.webp');
+}
+
+.headings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    color: black;
+    font-size: 18px;
+    transition: top 0.3s ease-in-out;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(188, 108, 37, 0.8);
+    color: black;
+    padding: 0 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.issue:hover .headings {
+    top: -70%;
+}
+
+.issue:hover .text {
+    opacity: 1;
+}
+
+#SFSU {
+    background-color: #fefae0;
+    font-weight: bold;
+    color: black;
+    border-radius: 8px;
+    padding: 10px 20px;
+    max-width: 90%;
+    margin: auto;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .issuesContainer {
+        grid-template-columns: repeat(2, 1fr);
+   }
+}
+
+@media (max-width: 800px) {
+    .issuesContainer {
+        grid-template-columns: 1fr;
+   }
+}
+
+/* Hide mobile navigation elements on desktop */
+.invisble,
+.dropdown {
+    display: none;
+}
